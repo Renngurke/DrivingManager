@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_km"
+            android:icon="@drawable/ic_kmstand"
+            android:title="Kilometerstand angeben" />
+        <item
+            android:id="@+id/nav_statistic"
+            android:icon="@drawable/ic_statistiken"
+            android:title="Statistiken" />
+        <item
+            android:id="@+id/nav_cost"
+            android:icon="@drawable/ic_reisekosten"
+            android:title="Reisekostenvorhersage" />
+        <item
+            android:id="@+id/nav_receipt"
+            android:icon="@drawable/ic_tankrechnung"
+            android:title="Tankrechnungen anzeigen" />
+    </group>
+
+</menu>

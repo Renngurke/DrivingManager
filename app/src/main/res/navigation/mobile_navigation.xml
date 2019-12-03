@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.drivingmanager.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_km"
+        android:name="com.example.drivingmanager.ui.kilometerstand.KmFragment"
+        android:label="@string/menu_kmstand"
+        tools:layout="@layout/fragment_kmstand" />
+
+    <fragment
+        android:id="@+id/nav_statistic"
+        android:name="com.example.drivingmanager.ui.statistiken.StatistikFragment"
+        android:label="@string/menu_statistik"
+        tools:layout="@layout/fragment_statistik" />
+
+    <fragment
+        android:id="@+id/nav_cost"
+        android:name="com.example.drivingmanager.ui.reisekosten.ReisekostenFragment"
+        android:label="@string/menu_reisevorhersage"
+        tools:layout="@layout/fragment_resiekosten" />
+
+    <fragment
+        android:id="@+id/nav_receipt"
+        android:name="com.example.drivingmanager.ui.tankrechnung.TankrechnungFragment"
+        android:label="@string/menu_tankrechnung"
+        tools:layout="@layout/fragment_tankrechnung" />
+
+    <fragment
+        android:id="@+id/nav_back"
+        android:name="com.example.drivingmanager.ui.send.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_send" />
+</navigation>
