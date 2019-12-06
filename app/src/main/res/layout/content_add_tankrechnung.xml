@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.tankrechnung.AddTankrechnung">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="3dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:paddingVertical="24dp"
+            android:text="Tankrechnung speichern"
+            android:textSize="28sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="0dp">
+
+            <TextView
+                style="@style/Widget.AppCompat.TextView"
+                android:layout_width="363dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:paddingVertical="15dp"
+                android:text="Wie viele Liter haben Sie getankt?"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="232dp"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:inputType="numberSigned|number|numberDecimal"
+                        android:paddingEnd="50dp" />
+
+                    <TextView
+                        android:layout_width="232dp"
+                        android:layout_height="wrap_content"
+                        android:text="l" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="0dp">
+
+            <TextView
+                style="@style/Widget.AppCompat.TextView"
+                android:layout_width="363dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:paddingVertical="15dp"
+                android:text="Wie viel haben Sie bezahlt?"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:gravity="center">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="232dp"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:inputType="numberSigned|number|numberDecimal"
+                        android:paddingEnd="50dp" />
+
+                    <TextView
+                        android:layout_width="232dp"
+                        android:layout_height="wrap_content"
+                        android:text="‎€" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="0dp">
+
+            <TextView
+                style="@style/Widget.AppCompat.TextView"
+                android:layout_width="363dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
+                android:paddingVertical="15dp"
+                android:text="Kilometerstand angeben"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:gravity="center">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="232dp"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:inputType="numberSigned|number|numberDecimal"
+                        android:paddingEnd="50dp" />
+
+                    <TextView
+                        android:layout_width="232dp"
+                        android:layout_height="wrap_content"
+                        android:text="km" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="0dp">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E0E0E0"
+                android:scaleType="fitCenter"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tankrechnung Fotografieren"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

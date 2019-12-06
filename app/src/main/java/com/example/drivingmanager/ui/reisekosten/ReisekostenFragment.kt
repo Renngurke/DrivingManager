@@ -22,10 +22,6 @@ class ReisekostenFragment : Fragment() {
         reisekostenViewModel =
             ViewModelProviders.of(this).get(ReisekostenViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_resiekosten, container, false)
-        val textView: TextView = root.findViewById(R.id.text_reisekosten)
-        reisekostenViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
         return root
     }
 }
