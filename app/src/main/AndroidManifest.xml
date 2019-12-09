@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ShowPhoto"></activity>
+        <activity android:name=".ui.tankrechnung.AddTankrechnung" />
         <activity
             android:name=".CarActivity"
             android:label="@string/title_activity_car"
