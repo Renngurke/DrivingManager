@@ -75,7 +75,7 @@
             android:gravity="left"
             android:paddingVertical="8dp"
             android:paddingStart="24dp"
-            android:text="Sie sind 15 km gefahren, Teilen Sie diesen in folgenden Strecken auf"
+            android:text="Sie sind 15 km gefahren, teilen Sie diese in folgenden Strecken auf"
             android:textSize="18sp" />
 
         <LinearLayout
