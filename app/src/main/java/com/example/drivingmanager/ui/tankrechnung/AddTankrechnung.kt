@@ -12,6 +12,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.example.drivingmanager.R
+import com.example.drivingmanager.Tankrechnung
 import kotlinx.android.synthetic.main.activity_add_car.*
 import kotlinx.android.synthetic.main.content_add_tankrechnung.*
 import java.io.File
@@ -92,6 +93,10 @@ class AddTankrechnung : AppCompatActivity() {
         onBackPressed()
 
         // TODO speichern
+        if (item.itemId == R.id.save) {
+            TankrechnungFragment.rechnungen.add(Tankrechnung(13.37, 13.37, ""))
+            onBackPressed()
+        }
 
         return super.onOptionsItemSelected(item)
     }

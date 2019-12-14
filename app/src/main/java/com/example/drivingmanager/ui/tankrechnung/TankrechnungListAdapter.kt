@@ -5,10 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CompoundButton
-import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.car_list_row.view.*
 import kotlinx.android.synthetic.main.tankrechnung_list_row.view.*
 
 
@@ -23,9 +20,9 @@ class TankrechnungListAdapter (val items : ArrayList<Tankrechnung>, val context:
     }
 
     override fun onBindViewHolder(holder: TankrechnungListAdapter.ViewHolder, position: Int) {
-        holder.datum.setText(items[position].datum)
-        holder.kosten.setText(items[position].kosten.toString())
-        holder.menge.setText(items[position].menge.toString())
+        holder.datum.setText(items[position].datum.toString())
+        holder.kosten.setText(items[position].preis.toString())
+        holder.menge.setText(items[position].liter.toString())
         holder.itemView.setOnClickListener(View.OnClickListener { v: View? ->
             context.startActivity(Intent(context, ShowPhoto::class.java))
         })

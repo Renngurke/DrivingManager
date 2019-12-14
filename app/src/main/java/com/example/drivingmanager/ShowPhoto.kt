@@ -1,11 +1,15 @@
 package com.example.drivingmanager
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import kotlinx.android.synthetic.main.activity_add_car.*
+import kotlinx.android.synthetic.main.content_show_photo.*
+import java.io.File
 
 class ShowPhoto : AppCompatActivity() {
 
@@ -15,6 +19,15 @@ class ShowPhoto : AppCompatActivity() {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
         toolbar.setNavigationOnClickListener { v: View? -> onBackPressed() }
         setSupportActionBar(toolbar)
+
+        val foo: String = intent.getStringExtra("Datei")
+        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val datei = File(storageDir, foo)
+
+        val photoURI =
+            FileProvider.getUriForFile(this, "com.example.drivingmanager.fileprovider", datei)
+
+        tankrechnungFoto.setImageURI(photoURI)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
