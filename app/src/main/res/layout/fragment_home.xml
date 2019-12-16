@@ -137,12 +137,12 @@
         android:backgroundTint="@color/colorPrimary"/>
 
     <TextView
-        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="top|center"
-        android:text="Denken Sie daran, regelmäßig Ihr gefahrenen Kilometer einzutragen und Ihre Tankrechnungen einzuspeichern!"
-        android:textSize="20sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:padding="24dp"
+        android:text="Denken Sie daran, regelmäßig Ihre gefahrenen Kilometer einzutragen und Ihre Tankrechnungen einzuspeichern!"
+        android:textSize="20sp" />
 
 </LinearLayout>

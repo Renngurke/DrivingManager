@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_show_photo" >
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/tankrechnungFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_menu_gallery" />

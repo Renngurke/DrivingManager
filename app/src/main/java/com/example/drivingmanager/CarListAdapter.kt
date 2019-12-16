@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
-import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.car_list_row.view.*
 
@@ -41,12 +40,13 @@ class CarListAdapter (val items : ArrayList<Car>, val context: Context): Recycle
             holder.selectionCB.visibility = View.GONE
         }
 
+        // TODO loeschen geht nicht?
         holder.selectionCB.isChecked = items[position].selected
         holder.selectionCB.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener({ cb: CompoundButton?, checked: Boolean ->
-            items[holder.layoutPosition].selected = checked
+            //items[holder.layoutPosition].selected = checked
         }))
-        holder.brand.setText(items[position].brand)
-        holder.mod.setText(items[position].mod)
+        holder.brand.setText(items[position].marke)
+        holder.mod.setText(items[position].modell)
         holder.itemView.setOnClickListener(View.OnClickListener { v: View? ->
             // TODO: implement on list item clicked listener
             context.startActivity(Intent(context, CarActivity::class.java))
