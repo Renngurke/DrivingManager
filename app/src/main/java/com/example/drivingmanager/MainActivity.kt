@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             size = cars.size
             startActivity(Intent(this, AddCarActivity::class.java))
         }
-        cars.add(Car("ASD1", "ASD", 0, 0, 0.0, 0.0, 0.0, 0, false))
+        cars.add(Car("VW", "Polo", 10000, 60, 8.0, 12.0, 10.0, 120, false))
         cars.add(Car("ASD2", "ASD", 0, 0, 0.0, 0.0, 0.0, 0, false))
 //        cars.add(Car("ASD3","ASD",0,0,0f,0f,0f,0f,false))
 //        cars.add(Car("ASD4","ASD",0,0,0f,0f,0f,0f,false))
