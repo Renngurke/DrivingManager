@@ -1,7 +1,13 @@
 package com.example.drivingmanager
 
+import java.io.Serializable
 import java.time.LocalDate
-import java.util.HashMap
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.MutableList
+import kotlin.collections.elementAt
+import kotlin.collections.getValue
+import kotlin.collections.set
 
 
 class Car(
@@ -14,7 +20,7 @@ class Car(
     verbHybrid: Double,
     co2Aus: Int,
     selected: Boolean
-) : java.io.Serializable {
+) : Serializable {
     val marke: String = marke
     val modell: String = modell
     var gesKM: Int = gesKM

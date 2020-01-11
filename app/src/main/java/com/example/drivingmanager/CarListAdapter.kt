@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.car_list_row.view.*
 
 
-class CarListAdapter (val items : ArrayList<Car>, val context: Context): RecyclerView.Adapter<CarListAdapter.ViewHolder>(){
+class CarListAdapter (val cl: CarList, val context: Context): RecyclerView.Adapter<CarListAdapter.ViewHolder>(){
+    val items: MutableList<Car> = cl.cars
+
     var selectionMode: Boolean = false
         get() = field
         set(value) {
@@ -47,9 +49,13 @@ class CarListAdapter (val items : ArrayList<Car>, val context: Context): Recycle
         }))
         holder.brand.setText(items[position].marke)
         holder.mod.setText(items[position].modell)
+
         holder.itemView.setOnClickListener(View.OnClickListener { v: View? ->
             // TODO: implement on list item clicked listener
-            context.startActivity(Intent(context, CarActivity::class.java))
+            val i: Intent = Intent(context, CarActivity::class.java)
+            i.putExtra("carlist", cl)
+            i.putExtra("index", 1)
+            context.startActivity(i)
         })
     }
 

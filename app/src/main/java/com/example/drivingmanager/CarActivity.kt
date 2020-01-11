@@ -1,28 +1,30 @@
 package com.example.drivingmanager
 
-import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import android.view.Menu
-import android.view.View
 import kotlinx.android.synthetic.main.activity_car.*
-import java.lang.Exception
 
 class CarActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val cl: CarList = this.intent.getSerializableExtra("carlist") as CarList
+        val index: Int = intent.getIntExtra("index", 0)
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_car)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -41,6 +43,14 @@ class CarActivity : AppCompatActivity() {
         )
         toolbar.setupWithNavController(navController,drawerLayout)
         navView.setupWithNavController(navController)
+
+        val header: View = navView.getHeaderView(0)
+
+        val model: TextView = header.findViewById<TextView>(R.id.nav_mod)
+        val marke: TextView = header.findViewById<TextView>(R.id.nav_brand)
+        model.text = cl.cars[index].modell
+        marke.text = cl.cars[index].marke
+        //tv.text = index.toString()
 
         nav_back.setOnClickListener(View.OnClickListener { v: View? ->
             onBackPressed()

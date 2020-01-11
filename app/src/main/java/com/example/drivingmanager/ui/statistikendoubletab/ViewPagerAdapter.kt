@@ -3,10 +3,10 @@ package com.example.drivingmanagerdoubletabs
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import java.util.ArrayList
+import java.util.*
 
 
-class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class ViewPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter((fm!!)) {
 
     // Konstruktor ist hier etwas seltsam
 

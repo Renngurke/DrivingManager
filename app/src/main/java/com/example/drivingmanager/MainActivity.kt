@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     var size: Int = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity() {
         }
         cars.add(Car("VW", "Polo", 10000, 60, 8.0, 12.0, 10.0, 120, false))
         cars.add(Car("ASD2", "ASD", 0, 0, 0.0, 0.0, 0.0, 0, false))
+
+        var cl: CarList = CarList()
+        cl.cars.add(Car("Vw", "Polo", 100, 10, 10.0, 10.0, 10.0, 10, false))
+        cl.cars.add(Car("Wv", "Yolo", 100, 10, 10.0, 10.0, 10.0, 10, false))
 //        cars.add(Car("ASD3","ASD",0,0,0f,0f,0f,0f,false))
 //        cars.add(Car("ASD4","ASD",0,0,0f,0f,0f,0f,false))
 //        cars.add(Car("ASD5","ASD",0,0,0f,0f,0f,0f,false))
@@ -44,8 +49,9 @@ class MainActivity : AppCompatActivity() {
 //        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
 //        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
 //        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
+
         list.layoutManager = LinearLayoutManager(this)
-        list.adapter = CarListAdapter(cars,this)
+        list.adapter = CarListAdapter(cl,this)
         if(cars.isEmpty()){
             list.visibility = View.GONE
             startText.visibility = View.VISIBLE
