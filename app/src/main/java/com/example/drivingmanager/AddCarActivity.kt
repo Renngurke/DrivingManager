@@ -39,7 +39,7 @@ class AddCarActivity : AppCompatActivity() {
                 add_co2.text.toString().toInt(),
                 false
             )
-            MainActivity.cars.add(c)
+            MainActivity.cl.cars.add(c)
             onBackPressed()
         }
         return super.onOptionsItemSelected(item)

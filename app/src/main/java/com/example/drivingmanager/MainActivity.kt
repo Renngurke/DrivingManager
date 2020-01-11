@@ -13,11 +13,11 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
     companion object {
-        lateinit var cars: ArrayList<Car>
+        lateinit var cl: CarList
     }
 
     init {
-        cars = ArrayList()
+        cl = CarList()
     }
 
     var size: Int = 0
@@ -31,44 +31,32 @@ class MainActivity : AppCompatActivity() {
         addButton.setOnClickListener { view ->
             // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
             //  .setAction("Action", null).show()
-            size = cars.size
+            size = cl.cars.size
             startActivity(Intent(this, AddCarActivity::class.java))
         }
-        cars.add(Car("VW", "Polo", 10000, 60, 8.0, 12.0, 10.0, 120, false))
-        cars.add(Car("ASD2", "ASD", 0, 0, 0.0, 0.0, 0.0, 0, false))
+        cl.cars.add(Car("VW", "Yolo", 10000, 60, 8.0, 12.0, 10.0, 120, false))
+        cl.cars.add(Car("ASD2", "ASD", 0, 0, 0.0, 0.0, 0.0, 0, false))
 
-        var cl: CarList = CarList()
-        cl.cars.add(Car("Vw", "Polo", 100, 10, 10.0, 10.0, 10.0, 10, false))
-        cl.cars.add(Car("Wv", "Yolo", 100, 10, 10.0, 10.0, 10.0, 10, false))
-//        cars.add(Car("ASD3","ASD",0,0,0f,0f,0f,0f,false))
-//        cars.add(Car("ASD4","ASD",0,0,0f,0f,0f,0f,false))
-//        cars.add(Car("ASD5","ASD",0,0,0f,0f,0f,0f,false))
-//        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
-//        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
-//        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
-//        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
-//        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
-//        cars.add(Car("ASD","ASD",0,0,0f,0f,0f,0f,false))
 
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = CarListAdapter(cl,this)
-        if(cars.isEmpty()){
+        if(cl.cars.isEmpty()){
             list.visibility = View.GONE
             startText.visibility = View.VISIBLE
         }else{
             startText.visibility = View.GONE
             list.visibility = View.VISIBLE
         }
-        size = cars.size
+        size = cl.cars.size
     }
 
     override fun onResume() {
         super.onResume()
-        if(cars.size > size){
+        if(cl.cars.size > size){
             Snackbar.make(list,R.string.car_added,Snackbar.LENGTH_LONG).show()
         }
         list.adapter?.notifyDataSetChanged()
-        if(cars.isEmpty()){
+        if(cl.cars.isEmpty()){
             list.visibility = View.GONE
             startText.visibility = View.VISIBLE
         }else{

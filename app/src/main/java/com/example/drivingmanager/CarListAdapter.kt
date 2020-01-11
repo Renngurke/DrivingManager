@@ -11,15 +11,14 @@ import kotlinx.android.synthetic.main.car_list_row.view.*
 
 
 class CarListAdapter (val cl: CarList, val context: Context): RecyclerView.Adapter<CarListAdapter.ViewHolder>(){
-    val items: MutableList<Car> = cl.cars
 
     var selectionMode: Boolean = false
         get() = field
         set(value) {
             if(value == false){
-                for (i in (items.size-1) downTo 0){
-                    if(items[i].selected){
-                        items.removeAt(i)
+                for (i in (MainActivity.cl.cars.size-1) downTo 0){
+                    if(MainActivity.cl.cars[i].selected){
+                        MainActivity.cl.cars.removeAt(i)
                     }
                 }
             }
@@ -32,7 +31,7 @@ class CarListAdapter (val cl: CarList, val context: Context): RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return MainActivity.cl.cars.size
     }
 
     override fun onBindViewHolder(holder: CarListAdapter.ViewHolder, position: Int) {
@@ -43,18 +42,17 @@ class CarListAdapter (val cl: CarList, val context: Context): RecyclerView.Adapt
         }
 
         // TODO loeschen geht nicht?
-        holder.selectionCB.isChecked = items[position].selected
+        holder.selectionCB.isChecked = MainActivity.cl.cars[position].selected
         holder.selectionCB.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener({ cb: CompoundButton?, checked: Boolean ->
-            //items[holder.layoutPosition].selected = checked
+            MainActivity.cl.cars[holder.layoutPosition].selected = checked
         }))
-        holder.brand.setText(items[position].marke)
-        holder.mod.setText(items[position].modell)
+        holder.brand.setText(MainActivity.cl.cars[position].marke)
+        holder.mod.setText(MainActivity.cl.cars[position].modell)
 
         holder.itemView.setOnClickListener(View.OnClickListener { v: View? ->
             // TODO: implement on list item clicked listener
             val i: Intent = Intent(context, CarActivity::class.java)
-            i.putExtra("carlist", cl)
-            i.putExtra("index", 1)
+            i.putExtra("index", holder.layoutPosition)
             context.startActivity(i)
         })
     }

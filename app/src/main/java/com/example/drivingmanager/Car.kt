@@ -4,9 +4,6 @@ import java.io.Serializable
 import java.time.LocalDate
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.MutableList
-import kotlin.collections.elementAt
-import kotlin.collections.getValue
 import kotlin.collections.set
 
 
@@ -33,7 +30,7 @@ class Car(
     var tankstand: Double = 1.000
     var literkosten: Double = 1.369
     val tankrechnungen: MutableList<Tankrechnung> = ArrayList()
-    val selected: Boolean = selected
+    var selected: Boolean = selected
 
     var dg_stadt_km_l_g: HashMap<LocalDate, FloatArray> = HashMap()
     var dg_autobahn_km_l_g: HashMap<LocalDate, FloatArray> = HashMap()
