@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_statistik_typ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:translationY="10dp"
+        android:textSize="30sp"
+        android:text="Typ" />
+
+    <TextView
+        android:id="@+id/text_betrachtungszeitraum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="textStart"
+        android:translationY="15dp"
+        android:textSize="20sp"
+        android:text="Betrachtungszeitraum:" />
+
+    <TextView
+        android:id="@+id/text_zeitraum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="textStart"
+        android:translationY="20dp"
+        android:textSize="20sp"
+        android:text="Datum - Datum" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chartd"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:translationY="35dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <TextView
+        android:id="@+id/text_gefahrene_strecke"
+        android:translationY="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:text="Gefahrene Strecke:" />
+
+    <TextView
+        android:id="@+id/text_kraftstoffverbrauch"
+        android:translationY="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:text="Kraftstoffverbrauch:" />
+
+    <TextView
+        android:id="@+id/text_co2_ausstoss"
+        android:translationY="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        android:text="CO2-Ausstoss:" />
+
+</LinearLayout>
