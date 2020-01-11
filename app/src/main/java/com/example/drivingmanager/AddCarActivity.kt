@@ -33,13 +33,14 @@ class AddCarActivity : AppCompatActivity() {
                 add_mod.text.toString(),
                 add_kmCounter.text.toString().toInt(),
                 add_autobahn.text.toString().toInt(),
-                add_city.text.toString().toDouble(),
+                add_city.text.toString().toDouble(), //?
                 add_autobahn.text.toString().toDouble(),
                 add_hybrid.text.toString().toDouble(),
-                add_co2.text.toString().toInt(),
+                add_kmCounter.text.toString().toInt(), //?
                 false
             )
             MainActivity.cl.cars.add(c)
+            MainActivity.cl.save(this)
             onBackPressed()
         }
         return super.onOptionsItemSelected(item)

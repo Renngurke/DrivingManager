@@ -9,6 +9,7 @@ import java.io.Serializable
 
 class CarList() : Serializable {
     var cars: MutableList<Car> = ArrayList()
+    var index: Int = 0
 
     fun initialize(con: Context) {
         val file = con.getFileStreamPath("CarsList")

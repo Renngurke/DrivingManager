@@ -21,8 +21,7 @@ class CarActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val index: Int = intent.getIntExtra("index", 0)
-
+        val index: Int = MainActivity.cl.index
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_car)

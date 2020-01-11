@@ -51,9 +51,8 @@ class CarListAdapter (val cl: CarList, val context: Context): RecyclerView.Adapt
 
         holder.itemView.setOnClickListener(View.OnClickListener { v: View? ->
             // TODO: implement on list item clicked listener
-            val i: Intent = Intent(context, CarActivity::class.java)
-            i.putExtra("index", holder.layoutPosition)
-            context.startActivity(i)
+            MainActivity.cl.index = holder.layoutPosition
+            context.startActivity(Intent(context, CarActivity::class.java))
         })
     }
 
