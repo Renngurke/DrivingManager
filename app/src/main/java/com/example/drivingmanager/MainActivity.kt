@@ -37,9 +37,11 @@ class MainActivity : AppCompatActivity() {
             size = cl.cars.size
             startActivity(Intent(this, AddCarActivity::class.java))
         }
-        cl.cars.add(Car("VW", "Yolo", 10000, 60, 8.0, 12.0, 10.0, 120, false))
-        cl.cars.add(Car("ASD2", "ASD", 0, 0, 0.0, 0.0, 0.0, 0, false))
 
+        if (cl.cars.isEmpty()) { //spaeter entfernen
+            cl.cars.add(Car("VW", "Yolo", 10000, 60, 8.0, 12.0, 10.0, 120, false))
+            cl.cars.add(Car("ASD2", "ASD", 0, 0, 0.0, 0.0, 0.0, 0, false))
+        }
 
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = CarListAdapter(cl,this)
@@ -81,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         if(item.itemId == R.id.delete){
             var adapter: CarListAdapter = list.adapter as CarListAdapter
             adapter.selectionMode = !adapter.selectionMode;
+            cl.save(this)
         }
         return when (item.itemId) {
             R.id.action_settings -> true
