@@ -1,165 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="center"
-            android:paddingVertical="24dp"
-            android:text="Reisekostenvorhersage"
-            android:textSize="28sp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="24dp">
+            android:orientation="vertical">
 
             <TextView
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:paddingVertical="15dp"
-                android:text="Welche Strecke wollen Sie fahren?"
-                android:textAlignment="viewStart"
-                android:textSize="18sp" />
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:paddingVertical="24dp"
+                android:text="Reisekostenvorhersage"
+                android:textSize="28sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="24dp">
+
+                <TextView
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Welche Strecke wollen Sie fahren?"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/rkv_eingabe_km"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="km" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="24dp">
+
+                <Button
+                    android:id="@+id/buttonRkv"
+                    android:layout_width="133dp"
+                    android:layout_height="46dp"
+                    android:background="@color/colorPrimary"
+                    android:text="Berechnen" />
+
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
                 <TextView
+                    android:id="@+id/textView9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="km" />
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="left"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="24dp"
+                    android:text="Voraussichtliche Kosten:"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/rkv_kosten"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="left"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="24dp"
+                    android:text="0 ‎€"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="left"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="24dp"
+                    android:text="Minimale Anzahl Tankstopps:"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/rkv_stopps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="left"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="24dp"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="left"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="24dp"
+                    android:text="Voraussichtlicher CO2 Ausstoss"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/rkv_co2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="left"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="24dp"
+                    android:text="0 g"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
             </LinearLayout>
-
-
         </LinearLayout>
+    </ScrollView>
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="24dp">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="133dp"
-                android:layout_height="46dp"
-                android:background="@color/colorPrimary"
-                android:text="Berechnen" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="411dp"
-            android:layout_height="429dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="left"
-                android:paddingVertical="8dp"
-                android:paddingStart="24dp"
-                android:text="Voraussichtliche Kosten:"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="left"
-                android:paddingVertical="8dp"
-                android:paddingStart="24dp"
-                android:text="0 ‎€"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="left"
-                android:paddingVertical="8dp"
-                android:paddingStart="24dp"
-                android:text="Minimale Anzahl Tankstopps:"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="left"
-                android:paddingVertical="8dp"
-                android:paddingStart="24dp"
-                android:text="0"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="left"
-                android:paddingVertical="8dp"
-                android:paddingStart="24dp"
-                android:text="Voraussichtlicher CO2 Ausstoss"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="left"
-                android:paddingVertical="8dp"
-                android:paddingStart="24dp"
-                android:text="0 g"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,371 +8,378 @@
     tools:context=".AddCarActivity"
     tools:showIn="@layout/activity_add_car">
 
-    <LinearLayout
-        android:id="@+id/inhaltLayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/automarke"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/textView1"
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                android:text="Automarke"
-                android:fontFamily="@font/roboto_bold"
-                android:textAlignment="viewStart"
-                android:textSize="18sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/markeInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_brand"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:background="@color/colorPrimary"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:inputType="text"
-                    android:paddingEnd="50dp" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/automodell"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/textView2"
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                android:text="Automodell"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:fontFamily="@font/roboto_bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/modellInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_mod"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:background="@color/colorPrimary"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:paddingEnd="50dp" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/kmstand"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/textView3"
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                android:text="Kilometerstand"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:fontFamily="@font/roboto_bold"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/kmInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/add_kmCounter"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="number"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/textEinheit1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="km" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/tankvolumen"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/textView4"
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                android:text="Tankvolumen"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:fontFamily="@font/roboto_bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tvInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/add_volume"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="number"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/textEinheit2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Liter" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/verbrauchStadt"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/textView5"
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                android:text="Verbrauch\nStadt"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:fontFamily="@font/roboto_bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/vStadtInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/add_city"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/textEinheit3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="liter/km" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/verbrauchAutobahn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/textView6"
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                android:text="Verbrauch\nAutobahn"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:fontFamily="@font/roboto_bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/vAutobahnInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/add_autobahn"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/textEinheit4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="liter/km" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/verbrauchHybrid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/textView7"
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                android:text="Verbrauch\nHybrid"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:fontFamily="@font/roboto_bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/vHybridInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/add_hybrid"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/textEinheit5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="liter/km" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/kilometerstand"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/textView8"
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:paddingVertical="15dp"
-                android:text="CO2\nAusstoß"
-                android:textAlignment="viewStart"
-                android:textSize="18sp"
-                android:fontFamily="@font/roboto_bold" />
-
-            <LinearLayout
+            android:id="@+id/inhaltLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            android:paddingBottom="50px">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/kmInput"
+            <LinearLayout
+                android:id="@+id/automarke"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="2dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_co2"
+                <TextView
+                    android:id="@+id/textView1"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Automarke"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/markeInput"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:background="@color/colorPrimary"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:inputType="numberSigned|number|numberDecimal"
-                    android:paddingEnd="50dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView10"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_brand"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:inputType="text"
+                        android:paddingEnd="50dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/automodell"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="g/km" />
-        </LinearLayout>
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Automodell"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/modellInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_mod"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:inputType="text"
+                        android:paddingEnd="50dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/kmstand"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Kilometerstand"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/haupt_co2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_kmCounter"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="number"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textEinheit1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="km" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tankvolumen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Tankvolumen"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tvInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_volume"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="number"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textEinheit2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Liter" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/verbrauchStadt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Verbrauch\nStadt"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/vStadtInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textEinheit3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="liter/km" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/verbrauchAutobahn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Verbrauch\nAutobahn"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/vAutobahnInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_autobahn"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textEinheit4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="liter/km" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/verbrauchHybrid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Verbrauch\nHybrid"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/vHybridInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_hybrid"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textEinheit5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="liter/km" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/kilometerstand"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="2dp">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="CO2\nAusstoß"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/haupt_co2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_co2"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="g/km" />
+                </LinearLayout>
+
+            </LinearLayout>
+
 
         </LinearLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

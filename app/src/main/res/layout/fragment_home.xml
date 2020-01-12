@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
+
+        <View
         android:layout_width="match_parent"
         android:layout_height="6dp"
         android:background="?android:attr/listDivider"
@@ -37,7 +42,7 @@
 
     <!-- hier muss die Variable der CO2-Ausstoß-eingabe eingetragen werden-->
                 <TextView
-                    android:id="@+id/kmInput"
+                    android:id="@+id/haupt_co2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="24dp"
@@ -76,6 +81,7 @@
 
      <!-- hier muss die Variable der Tankvorhersage-eingabe eingetragen werden-->
                 <TextView
+                    android:id="@+id/haupt_vorher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="24dp"
@@ -113,6 +119,7 @@
 
     <!-- hier muss die Variable der Durchschnittsverbrauch-eingabe eingetragen werden-->
                 <TextView
+                    android:id="@+id/haupt_verbrauch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="24dp"
@@ -146,4 +153,6 @@
         android:text="Denken Sie daran, regelmäßig Ihre gefahrenen Kilometer einzutragen und Ihre Tankrechnungen einzuspeichern!"
         android:textSize="20sp" />
 
-</LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

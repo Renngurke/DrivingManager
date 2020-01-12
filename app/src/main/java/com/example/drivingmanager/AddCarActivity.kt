@@ -32,11 +32,11 @@ class AddCarActivity : AppCompatActivity() {
                 add_brand.text.toString(),
                 add_mod.text.toString(),
                 add_kmCounter.text.toString().toInt(),
-                add_autobahn.text.toString().toInt(),
-                add_city.text.toString().toDouble(), //?
+                add_volume.text.toString().toInt(),
+                add_city.text.toString().toDouble(),
                 add_autobahn.text.toString().toDouble(),
                 add_hybrid.text.toString().toDouble(),
-                add_kmCounter.text.toString().toInt(), //?
+                add_co2.text.toString().toInt(),
                 false
             )
             MainActivity.cl.cars.add(c)

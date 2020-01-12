@@ -4,213 +4,218 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="center"
-            android:paddingVertical="24dp"
-            android:text="@string/title_km_angeben"
-            android:textSize="28sp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="24dp">
+            android:orientation="vertical">
 
             <TextView
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:paddingVertical="15dp"
-                android:text="Kilometerstand"
-                android:textAlignment="viewStart"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:paddingVertical="24dp"
+                android:text="@string/title_km_angeben"
+                android:textSize="28sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="24dp">
+
+                <TextView
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Kilometerstand"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="km" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="left"
+                android:paddingVertical="8dp"
+                android:paddingStart="24dp"
+                android:text="Sie sind 15 km gefahren, teilen Sie diese in folgenden Strecken auf"
                 android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="24dp">
 
                 <TextView
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Stadt"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="km" />
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="km" />
+                </LinearLayout>
+
+
             </LinearLayout>
-
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="6dp"
-            android:background="?android:attr/listDivider"
-            android:backgroundTint="@color/colorPrimary" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="left"
-            android:paddingVertical="8dp"
-            android:paddingStart="24dp"
-            android:text="Sie sind 15 km gefahren, teilen Sie diese in folgenden Strecken auf"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="24dp">
-
-            <TextView
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:paddingVertical="15dp"
-                android:text="Stadt"
-                android:textAlignment="viewStart"
-                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="24dp">
 
                 <TextView
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Autobahn"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="km" />
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="km" />
+                </LinearLayout>
+
+
             </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="24dp">
-
-            <TextView
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:paddingVertical="15dp"
-                android:text="Autobahn"
-                android:textAlignment="viewStart"
-                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="24dp">
 
                 <TextView
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingVertical="15dp"
+                    android:text="Hybrid"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="km" />
-            </LinearLayout>
+                    android:orientation="vertical">
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="24dp">
-
-            <TextView
-                style="@style/Widget.AppCompat.TextView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
-                android:paddingVertical="15dp"
-                android:text="Hybrid"
-                android:textAlignment="viewStart"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="km" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:inputType="numberSigned|number|numberDecimal"
+                            android:paddingEnd="50dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="km" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
-
         </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

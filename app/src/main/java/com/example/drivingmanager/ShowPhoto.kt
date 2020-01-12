@@ -1,7 +1,6 @@
 package com.example.drivingmanager
 
 import android.os.Bundle
-import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -20,9 +19,10 @@ class ShowPhoto : AppCompatActivity() {
         toolbar.setNavigationOnClickListener { v: View? -> onBackPressed() }
         setSupportActionBar(toolbar)
 
-        val foo: String = intent.getStringExtra("Datei")
-        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        val datei = File(storageDir, foo)
+        val foo: String = intent.getStringExtra("filename")
+        //val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        //val datei = File(storageDir, foo)
+        val datei = File(foo)
 
         val photoURI =
             FileProvider.getUriForFile(this, "com.example.drivingmanager.fileprovider", datei)

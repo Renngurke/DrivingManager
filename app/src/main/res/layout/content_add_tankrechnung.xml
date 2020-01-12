@@ -52,6 +52,7 @@
                     android:gravity="center">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_tank_l"
                         android:layout_width="232dp"
                         android:layout_height="35dp"
                         android:background="@color/colorPrimary"
@@ -98,6 +99,7 @@
                     android:gravity="center">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_tank_eu"
                         android:layout_width="232dp"
                         android:layout_height="35dp"
                         android:background="@color/colorPrimary"
@@ -144,11 +146,12 @@
                     android:gravity="center">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/add_tank_km"
                         android:layout_width="232dp"
                         android:layout_height="35dp"
                         android:background="@color/colorPrimary"
                         android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
+                        android:inputType="numberSigned|number"
                         android:paddingEnd="50dp" />
 
                     <TextView
@@ -178,7 +181,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="#E0E0E0"
                 android:scaleType="fitCenter"
-                android:tint="@color/colorPrimary"
+                android:tint="#A62626"
                 app:srcCompat="@android:drawable/ic_menu_camera" />
 
             <TextView

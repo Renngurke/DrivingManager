@@ -41,7 +41,6 @@ class CarListAdapter (val cl: CarList, val context: Context): RecyclerView.Adapt
             holder.selectionCB.visibility = View.GONE
         }
 
-        // TODO loeschen geht nicht?
         holder.selectionCB.isChecked = MainActivity.cl.cars[position].selected
         holder.selectionCB.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener({ cb: CompoundButton?, checked: Boolean ->
             MainActivity.cl.cars[holder.layoutPosition].selected = checked

@@ -42,12 +42,15 @@ class CarActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navController,drawerLayout)
         navView.setupWithNavController(navController)
 
+
         val header: View = navView.getHeaderView(0)
 
-        val model: TextView = header.findViewById<TextView>(R.id.nav_mod)
-        val marke: TextView = header.findViewById<TextView>(R.id.nav_brand)
+        val model = header.findViewById<TextView>(R.id.nav_mod)
+        val marke = header.findViewById<TextView>(R.id.nav_brand)
+
         model.text = MainActivity.cl.cars[index].modell
         marke.text = MainActivity.cl.cars[index].marke
+
 
         nav_back.setOnClickListener(View.OnClickListener { v: View? ->
             onBackPressed()

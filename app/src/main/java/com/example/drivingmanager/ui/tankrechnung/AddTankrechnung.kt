@@ -9,8 +9,10 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import com.example.drivingmanager.MainActivity
 import com.example.drivingmanager.R
 import com.example.drivingmanager.Tankrechnung
 import kotlinx.android.synthetic.main.activity_add_car.*
@@ -22,7 +24,7 @@ import java.util.*
 class AddTankrechnung : AppCompatActivity() {
 
     val REQUEST_TAKE_PHOTO = 1
-    lateinit var currentPhotoPath: String
+    var currentPhotoPath = ""
 
     @Throws(IOException::class)
     private fun createImageFile(): File {
@@ -63,8 +65,10 @@ class AddTankrechnung : AppCompatActivity() {
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO)
+
+                    val btn = findViewById(R.id.buttonFoto) as ImageButton
+                    btn.imageTintList = getColorStateList(R.color.colorPrimary)
                 }
-                // TODO foto filepath in tankrechnung hinzufuegen
             }
         }
     }
@@ -92,9 +96,19 @@ class AddTankrechnung : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         onBackPressed()
 
-        // TODO speichern
         if (item.itemId == R.id.save) {
-            TankrechnungFragment.rechnungen.add(Tankrechnung(13.37, 13.37, ""))
+
+            MainActivity.cl.cars[MainActivity.cl.index].tankrechnungen.add(
+                Tankrechnung(
+                    add_tank_l.text.toString().toDouble(),
+                    add_tank_eu.text.toString().toDouble(),
+                    currentPhotoPath
+                )
+            )
+
+            MainActivity.cl.cars[MainActivity.cl.index].gesKM =
+                add_tank_km.text.toString().toInt() //ersetzen oder hinzufuegen????
+            MainActivity.cl.save(this)
             onBackPressed()
         }
 

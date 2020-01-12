@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -38,11 +38,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, AddCarActivity::class.java))
         }
 
-        if (cl.cars.isEmpty()) { //spaeter entfernen
-            cl.cars.add(Car("VW", "Yolo", 10000, 60, 8.0, 12.0, 10.0, 120, false))
-            cl.cars.add(Car("ASD2", "ASD", 0, 0, 0.0, 0.0, 0.0, 0, false))
-        }
-
         list.layoutManager = LinearLayoutManager(this)
         list.adapter = CarListAdapter(cl,this)
         if(cl.cars.isEmpty()){
@@ -58,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         if(cl.cars.size > size){
-            Snackbar.make(list,R.string.car_added,Snackbar.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.car_added, Toast.LENGTH_LONG).show()
         }
         list.adapter?.notifyDataSetChanged()
         if(cl.cars.isEmpty()){
