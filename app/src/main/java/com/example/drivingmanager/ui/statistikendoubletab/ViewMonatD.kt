@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
+import com.example.drivingmanager.MainActivity
 import com.example.drivingmanager.R
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
@@ -26,30 +27,20 @@ class ViewMonatD : Fragment() {
 // Übernehmen der HaspMap aus der Klasse
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
-    // Anhand von Klasse abrufen
-    val co2_value  = 190.4f
+    val index = MainActivity.cl.index;
 
-    // !!!HashMap!!! zum Verbrauch wird mir ebenfalls von der Klasse angegeben | Durchschnitt liegt bei 8L/100km
-    val verbrauch_1km = 0.08f
+    private fun ListeMap(): HashMap<LocalDate,FloatArray> {
 
-    // Anhand von Klasse aufrufen
-    private fun ListeMap(): HashMap<LocalDate,Float> {
-
-        val myList: HashMap<LocalDate, Float>
-        myList = HashMap<LocalDate, Float>()
-
-        for (i in 0..30) {
-            myList.put(LocalDate.of(2019,12,i+1), Random.nextInt(20).toFloat())
-        }
+        val myList: HashMap<LocalDate, FloatArray>
+        myList = MainActivity.cl.cars[index].dg_durch_km_l_g
 
         return myList
     }
 
     //--------------------------------------------------------------------------------------------------------------------------------------------
+
     lateinit var viewA : View
     lateinit var mpLineChart: LineChart
-
-    // Konstruktor -- automatisch ???
 
     @Nullable
     override fun onCreateView(inflater: LayoutInflater,  @Nullable container: ViewGroup?,  @Nullable savedInstanceState: Bundle?): View {
@@ -82,10 +73,6 @@ class ViewMonatD : Fragment() {
         var streckeC: TextView
         streckeC = viewA.findViewById(R.id.text_co2_ausstoss)
         streckeC.setText("CO2-Ausstoss: \t \t \t \t \t \t " + streckeCo2 + " g/km")
-
-
-
-
 
         mpLineChart = viewA.findViewById(R.id.line_chartd) as LineChart
 
@@ -123,10 +110,9 @@ class ViewMonatD : Fragment() {
         return viewA
     }
 
-
     private fun GefahreneStrecke(): Double {
 
-        val myList: HashMap<LocalDate, Float>
+        val myList: HashMap<LocalDate, FloatArray>
         myList = ListeMap()
 
         var strecke = 0.0
@@ -135,7 +121,7 @@ class ViewMonatD : Fragment() {
         for (i in 0..30) {
 
             if (myList.containsKey(date)) {
-                strecke += myList.getValue(date)
+                strecke += myList.getValue(date)[0]
             } else {
 
             }
@@ -151,7 +137,7 @@ class ViewMonatD : Fragment() {
 
     private fun VerbrauchStrecke(): Double {
 
-        val myList: HashMap<LocalDate, Float>
+        val myList: HashMap<LocalDate, FloatArray>
         myList = ListeMap()
 
         var verbrauch = 0.0
@@ -160,7 +146,7 @@ class ViewMonatD : Fragment() {
         for (i in 0..30) {
 
             if (myList.containsKey(date)) {
-                verbrauch += (myList.getValue(date)*verbrauch_1km)
+                verbrauch += myList.getValue(date)[1]
             } else {
 
             }
@@ -176,7 +162,7 @@ class ViewMonatD : Fragment() {
 
     private fun Co2Strecke(): Double {
 
-        val myList: HashMap<LocalDate, Float>
+        val myList: HashMap<LocalDate, FloatArray>
         myList = ListeMap()
 
         var co2 = 0.0
@@ -185,7 +171,7 @@ class ViewMonatD : Fragment() {
         for (i in 0..30) {
 
             if (myList.containsKey(date)) {
-                co2 += (myList.getValue(date)*co2_value)
+                co2 += myList.getValue(date)[3]
             } else {
 
             }
@@ -221,7 +207,7 @@ class ViewMonatD : Fragment() {
 
     private fun KmValuesMonth(): ArrayList<Entry> {
 
-        val myList: HashMap<LocalDate,Float>
+        val myList: HashMap<LocalDate,FloatArray>
         myList = ListeMap()
 
         val dataVals = ArrayList<Entry>()
@@ -236,7 +222,7 @@ class ViewMonatD : Fragment() {
             for(i in 0..6) {
 
                 if(myList.containsKey(day)) {
-                    value += myList.getValue(day)
+                    value += myList.getValue(day)[1]
                 }
 
                 else {
@@ -256,7 +242,7 @@ class ViewMonatD : Fragment() {
                 for(i in 0..2) {
 
                     if(myList.containsKey(day)) {
-                        value += myList.getValue(day)
+                        value += myList.getValue(day)[1]
                     }
 
                     else {
@@ -277,10 +263,7 @@ class ViewMonatD : Fragment() {
 
     private fun Co2ValuesMonth(): ArrayList<Entry> {
 
-        // g in kg umwandeln, da sonst die Werte zu hoch sind
-        val co2_kg  = (co2_value/1000)
-
-        val myList: HashMap<LocalDate,Float>
+        val myList: HashMap<LocalDate,FloatArray>
         myList = ListeMap()
 
         val dataVals = ArrayList<Entry>()
@@ -295,7 +278,7 @@ class ViewMonatD : Fragment() {
             for(i in 0..6) {
 
                 if(myList.containsKey(day)) {
-                    value += (myList.getValue(day)*co2_kg)
+                    value += myList.getValue(day)[3]
                 }
 
                 else {
@@ -315,7 +298,7 @@ class ViewMonatD : Fragment() {
                 for(i in 0..2) {
 
                     if(myList.containsKey(day)) {
-                        value += (myList.getValue(day)*co2_kg)
+                        value += myList.getValue(day)[3]
                     }
 
                     else {
@@ -336,7 +319,7 @@ class ViewMonatD : Fragment() {
 
     private fun VerbrauchValuesMonth(): ArrayList<Entry> {
 
-        val myList: HashMap<LocalDate,Float>
+        val myList: HashMap<LocalDate,FloatArray>
         myList = ListeMap()
 
         val dataVals = ArrayList<Entry>()
@@ -351,7 +334,7 @@ class ViewMonatD : Fragment() {
             for(i in 0..6) {
 
                 if(myList.containsKey(day)) {
-                    value += (myList.getValue(day)*verbrauch_1km)
+                    value += myList.getValue(day)[2]
                 }
 
                 else {
@@ -371,7 +354,7 @@ class ViewMonatD : Fragment() {
                 for(i in 0..2) {
 
                     if(myList.containsKey(day)) {
-                        value += (myList.getValue(day)*verbrauch_1km)
+                        value += myList.getValue(day)[2]
                     }
 
                     else {
