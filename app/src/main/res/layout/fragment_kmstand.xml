@@ -49,12 +49,14 @@
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_kmstand"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:background="@color/colorPrimary"
                             android:backgroundTint="@color/colorPrimary"
                             android:inputType="numberSigned|number|numberDecimal"
                             android:paddingEnd="50dp" />
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
@@ -77,9 +79,25 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="left"
-                android:paddingVertical="8dp"
+                android:paddingVertical="4dp"
                 android:paddingStart="24dp"
-                android:text="Sie sind 15 km gefahren, teilen Sie diese in folgenden Strecken auf"
+                android:text="Sie sind diese Anzahl an km gefahren:"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/km_diff"
+                android:paddingStart="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="left"
+                android:paddingVertical="4dp"
+                android:paddingStart="24dp"
+                android:text="Teilen Sie diese in folgenden Strecken auf:"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -109,6 +127,7 @@
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_kmstadt"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:background="@color/colorPrimary"
@@ -153,6 +172,7 @@
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_kmautobahn"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:background="@color/colorPrimary"
@@ -197,6 +217,7 @@
                         android:layout_height="wrap_content">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/add_kmhybrid"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:background="@color/colorPrimary"
