@@ -97,15 +97,15 @@ class AddTankrechnung : AppCompatActivity() {
         if (item.itemId == R.id.save) {
 
             if (add_tank_eu.text.isNullOrEmpty()) {
-                add_tank_eu.setError("foo")
+                add_tank_eu.setError("Geben Sie den Preis ein")
             }
 
             if (add_tank_l.text.isNullOrEmpty()) {
-                add_tank_l.setError("foo")
+                add_tank_l.setError("Geben Sie die Liter an")
             }
 
             if (add_tank_km.text.isNullOrEmpty()) {
-                add_tank_km.setError("foo")
+                add_tank_km.setError("Geben Sie den Kilometerstand an")
             }
 
             if (!(add_tank_eu.text.isNullOrEmpty() || add_tank_l.text.isNullOrEmpty() || add_tank_km.text.isNullOrEmpty())) {

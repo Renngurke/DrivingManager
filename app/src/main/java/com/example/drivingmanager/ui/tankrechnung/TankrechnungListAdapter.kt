@@ -24,9 +24,9 @@ class TankrechnungListAdapter(val items: MutableList<Tankrechnung>, val context:
     override fun onBindViewHolder(holder: TankrechnungListAdapter.ViewHolder, position: Int) {
         val filename = MainActivity.cl.cars[MainActivity.cl.index].tankrechnungen[position].bild
 
-        holder.datum.setText(items[position].datum.toString())
-        holder.kosten.setText(items[position].preis.toString())
-        holder.menge.setText(items[position].liter.toString())
+        holder.datum.setText(items[position].getDatum())
+        holder.kosten.setText(String.format("%.2f €", items[position].preis))
+        holder.menge.setText(String.format("%.2f l", items[position].liter))
         holder.foto.isVisible = filename.isNotEmpty()
 
         holder.itemView.setOnClickListener(View.OnClickListener { v: View? ->

@@ -28,8 +28,10 @@ class HomeFragment : Fragment() {
         root.haupt_co2.text = MainActivity.cl.cars[MainActivity.cl.index].co2Aus.toString() // ?
         root.haupt_vorher.text =
             MainActivity.cl.cars[MainActivity.cl.index].uebrigeKM().toString() // richtige funktion?
-        root.haupt_verbrauch.text = MainActivity.cl.cars[MainActivity.cl.index].verbDurchschnitt()
-            .toString() // richtige funktion?
+        root.haupt_verbrauch.text = String.format(
+            "%.2f",
+            MainActivity.cl.cars[MainActivity.cl.index].verbDurchschnitt()
+        ) // richtige funktion?
 
         homeViewModel.text.observe(this, Observer {
             //textView.text = it

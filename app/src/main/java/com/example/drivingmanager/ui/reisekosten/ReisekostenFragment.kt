@@ -30,9 +30,11 @@ class ReisekostenFragment : Fragment() {
                 val car = MainActivity.cl.cars[MainActivity.cl.index]
                 val eingabe = root.rkv_eingabe_km.text.toString().toInt()
 
-                root.rkv_co2.text = String.format("%i g", car.rkv_co2(eingabe))
-                root.rkv_kosten.text = String.format("%.2d €", car.rkv_kosten(eingabe))
+                root.rkv_co2.text = String.format("%d g", car.rkv_co2(eingabe))
+                root.rkv_kosten.text = String.format("%.2f €", car.rkv_kosten(eingabe))
                 root.rkv_stopps.text = car.rkv_anzStops(eingabe).toString()
+            } else {
+                root.rkv_eingabe_km.setError("Geben Sie die Strecke ein")
             }
         }
 
