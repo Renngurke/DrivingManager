@@ -40,7 +40,7 @@ class MainStatistiken : Fragment() {
         var adapter: ViewPagerAdapter = ViewPagerAdapter(activity?.supportFragmentManager)
 
 
-        adapter.AddFragment(FragmentDurchschnitt(),"Durchschnitt")
+        adapter.AddFragment(FragmentDurchschnitt(),"Durchschn.")
         adapter.AddFragment(FragmentStadt(),"Stadt")
         adapter.AddFragment(FragmentAutobahn(),"Autobahn")
         adapter.AddFragment(FragmentHybrid(),"Hybrid")

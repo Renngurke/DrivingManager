@@ -80,10 +80,12 @@ class ViewWocheS : Fragment() {
         val km = LineDataSet(KmValuesWeek(), "km")
         km.setColor(Color.GREEN)
         km.setLineWidth(2f)
+        km.setDrawValues(false)
 
         val co2 = LineDataSet(Co2ValuesWeek(), "kg")
         co2.setColor(Color.MAGENTA)
         co2.setLineWidth(2f)
+        co2.setDrawValues(false)
 
         val verbrauch = LineDataSet(VerbrauchValuesWeek(), "l")
         verbrauch.setColor(Color.GRAY)

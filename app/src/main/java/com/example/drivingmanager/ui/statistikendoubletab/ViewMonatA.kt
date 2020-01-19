@@ -79,10 +79,12 @@ class ViewMonatA : Fragment() {
         val km = LineDataSet(KmValuesMonth(), "km")
         km.setColor(Color.GREEN)
         km.setLineWidth(2f)
+        km.setDrawValues(false)
 
         val co2 = LineDataSet(Co2ValuesMonth(), "kg")
         co2.setColor(Color.MAGENTA)
         co2.setLineWidth(2f)
+        co2.setDrawValues(false)
 
         val verbrauch = LineDataSet(VerbrauchValuesMonth(), "l")
         verbrauch.setColor(Color.GRAY)
@@ -194,7 +196,7 @@ class ViewMonatA : Fragment() {
         var counter = 1
         for(i in 0..4) {
 
-            xAxisLabel.add(counter.toString())
+            xAxisLabel.add("")
             counter++
         }
 
