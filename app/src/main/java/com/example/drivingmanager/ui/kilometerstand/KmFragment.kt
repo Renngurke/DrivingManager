@@ -63,6 +63,9 @@ class KmFragment : Fragment() {
                 if ((kmStadt + kmAutobahn + kmHybrid) < (kmStand - car.gesKM)) {
                     val err = "Kilometeranzahl zu niedrig"
                     add_kmstadt.setError(err)
+                } else if ((kmStadt + kmAutobahn + kmHybrid) > (kmStand - car.gesKM)) {
+                    val err = "Kilometeranzahl zu hoch"
+                    add_kmstadt.setError(err)
                 } else {
 
                     car.gesKM = kmStand
@@ -119,6 +122,7 @@ class KmFragment : Fragment() {
                 if (add_kmstand.text.toString().isNullOrEmpty()) {
                     km_diff.text = null
                 } else if (add_kmstand.text.toString().toInt() <= MainActivity.cl.cars[index].gesKM) {
+                    km_diff.text = null
                     add_kmstand.setError("Neuer Kilometerstand ist kleiner als der bisherige")
                 } else {
                     km_diff.text = String.format(
