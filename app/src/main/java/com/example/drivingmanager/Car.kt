@@ -77,8 +77,8 @@ class Car(
     }
 
     fun tr_eingabe(liter: Double, preis: Double, km: Int, bild: String) {
-        gesKM += km
-        gesCo2Aus += km * co2Aus
+        gesKM = km
+        gesCo2Aus = km * co2Aus
         tankstand += liter / tankVol
         if (tankstand > 1.00) tankstand = 1.00
         literkosten = ((preis / liter) + literkosten) / 2.0

@@ -95,20 +95,27 @@ class AddTankrechnung : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
 
         if (item.itemId == R.id.save) {
+            var error = false
 
             if (add_tank_eu.text.isNullOrEmpty()) {
                 add_tank_eu.setError("Geben Sie den Preis ein")
+                error = true
             }
 
             if (add_tank_l.text.isNullOrEmpty()) {
                 add_tank_l.setError("Geben Sie die Liter an")
+                error = true
             }
 
             if (add_tank_km.text.isNullOrEmpty()) {
                 add_tank_km.setError("Geben Sie den Kilometerstand an")
+                error = true
+            } else if (add_tank_km.text.toString().toInt() <= MainActivity.cl.cars[MainActivity.cl.index].gesKM) {
+                add_tank_km.setError("Eingegebener Kilometerstand niedriger als momentaner Kilomestand")
+                error = true
             }
 
-            if (!(add_tank_eu.text.isNullOrEmpty() || add_tank_l.text.isNullOrEmpty() || add_tank_km.text.isNullOrEmpty())) {
+            if (!(error)) {
 
                 val liter = add_tank_l.text.toString().toDouble()
                 val preis = add_tank_eu.text.toString().toDouble()
