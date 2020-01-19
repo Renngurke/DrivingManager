@@ -272,7 +272,7 @@ class ViewJahrD : Fragment() {
                 var date = LocalDate.of(year,month,i)
 
                 if(myList.containsKey(date)) {
-                    value += myList.getValue(date)[2]
+                    value += myList.getValue(date)[2] / 1000
                 }
 
                 else {

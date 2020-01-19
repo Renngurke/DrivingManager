@@ -257,7 +257,7 @@ class ViewWocheS : Fragment() {
 
             // Falls der Benutzer die Statistik aufrufen möchte, obwohl noch nicht gefahren wurde
             if(myList.containsKey(date)) {
-                dataVals.add(Entry(i.toFloat(), myList.getValue(date)[2]))
+                dataVals.add(Entry(i.toFloat(), myList.getValue(date)[2] / 1000))
             }
 
             else {

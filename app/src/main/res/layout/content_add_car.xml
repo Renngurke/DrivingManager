@@ -181,7 +181,7 @@
                         android:id="@+id/textEinheit2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Liter" />
+                        android:text="liter" />
                 </LinearLayout>
 
             </LinearLayout>

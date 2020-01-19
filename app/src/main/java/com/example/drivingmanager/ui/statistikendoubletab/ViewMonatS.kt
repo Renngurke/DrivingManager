@@ -223,7 +223,7 @@ class ViewMonatS : Fragment() {
             for(i in 0..6) {
 
                 if(myList.containsKey(day)) {
-                    value += myList.getValue(day)[1]
+                    value += myList.getValue(day)[0]
                 }
 
                 else {
@@ -243,7 +243,7 @@ class ViewMonatS : Fragment() {
                 for(i in 0..2) {
 
                     if(myList.containsKey(day)) {
-                        value += myList.getValue(day)[1]
+                        value += myList.getValue(day)[0]
                     }
 
                     else {
@@ -279,7 +279,7 @@ class ViewMonatS : Fragment() {
             for(i in 0..6) {
 
                 if(myList.containsKey(day)) {
-                    value += myList.getValue(day)[2]
+                    value += myList.getValue(day)[2] / 1000
                 }
 
                 else {
@@ -299,7 +299,7 @@ class ViewMonatS : Fragment() {
                 for(i in 0..2) {
 
                     if(myList.containsKey(day)) {
-                        value += myList.getValue(day)[2]
+                        value += myList.getValue(day)[2] / 1000
                     }
 
                     else {
