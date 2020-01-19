@@ -18,6 +18,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.time.LocalDate
 import java.util.*
 
@@ -132,7 +133,7 @@ class ViewJahrA : Fragment() {
         val df = DecimalFormat("#.##")
         df.roundingMode = RoundingMode.CEILING
 
-        return df.format(strecke).toDouble()
+        return NumberFormat.getInstance().parse(df.format(strecke)).toDouble()
     }
 
     private fun VerbrauchStrecke(): Double {
@@ -157,7 +158,7 @@ class ViewJahrA : Fragment() {
         val df = DecimalFormat("#.##")
         df.roundingMode = RoundingMode.CEILING
 
-        return df.format(verbrauch).toDouble()
+        return NumberFormat.getInstance().parse(df.format(verbrauch)).toDouble()
     }
 
     private fun Co2Strecke(): Double {
@@ -171,7 +172,7 @@ class ViewJahrA : Fragment() {
         for (i in 0..255) {
 
             if (myList.containsKey(date)) {
-                co2 += myList.getValue(date)[2]
+                co2 += myList.getValue(date)[2] / 1000
             } else {
 
             }
@@ -182,7 +183,7 @@ class ViewJahrA : Fragment() {
         val df = DecimalFormat("#.##")
         df.roundingMode = RoundingMode.CEILING
 
-        return df.format(co2).toDouble()
+        return NumberFormat.getInstance().parse(df.format(co2)).toDouble()
     }
 
 // Beschriftung der X-Achse
