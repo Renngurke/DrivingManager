@@ -31,7 +31,7 @@ class ShowPhoto : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.add_car_menu, menu)
+        menuInflater.inflate(R.menu.show_photo_menu, menu)
         return true
     }
 
