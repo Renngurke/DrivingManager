@@ -16,11 +16,10 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import java.time.LocalDate
-import java.util.ArrayList
 import java.math.RoundingMode
 import java.text.DecimalFormat
-import kotlin.random.Random
+import java.time.LocalDate
+import java.util.*
 
 class ViewWocheA : Fragment() {
 
@@ -175,7 +174,7 @@ class ViewWocheA : Fragment() {
         for (i in 0..6) {
 
             if (myList.containsKey(date)) {
-                co2 += myList.getValue(date)[3]
+                co2 += myList.getValue(date)[2]
             } else {
 
             }
@@ -258,7 +257,7 @@ class ViewWocheA : Fragment() {
 
             // Falls der Benutzer die Statistik aufrufen möchte, obwohl noch nicht gefahren wurde
             if(myList.containsKey(date)) {
-                dataVals.add(Entry(i.toFloat(), myList.getValue(date)[3]))
+                dataVals.add(Entry(i.toFloat(), myList.getValue(date)[2]))
             }
 
             else {

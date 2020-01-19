@@ -16,11 +16,10 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import java.time.LocalDate
-import java.util.ArrayList
 import java.math.RoundingMode
 import java.text.DecimalFormat
-import kotlin.random.Random
+import java.time.LocalDate
+import java.util.*
 
 class ViewMonatH : Fragment() {
 
@@ -173,7 +172,7 @@ class ViewMonatH : Fragment() {
         for (i in 0..30) {
 
             if (myList.containsKey(date)) {
-                co2 += myList.getValue(date)[3]
+                co2 += myList.getValue(date)[2]
             } else {
 
             }
@@ -280,7 +279,7 @@ class ViewMonatH : Fragment() {
             for(i in 0..6) {
 
                 if(myList.containsKey(day)) {
-                    value += myList.getValue(day)[3]
+                    value += myList.getValue(day)[2]
                 }
 
                 else {
@@ -300,7 +299,7 @@ class ViewMonatH : Fragment() {
                 for(i in 0..2) {
 
                     if(myList.containsKey(day)) {
-                        value += myList.getValue(day)[3]
+                        value += myList.getValue(day)[2]
                     }
 
                     else {
@@ -336,7 +335,7 @@ class ViewMonatH : Fragment() {
             for(i in 0..6) {
 
                 if(myList.containsKey(day)) {
-                    value += myList.getValue(day)[2]
+                    value += myList.getValue(day)[1]
                 }
 
                 else {
@@ -356,7 +355,7 @@ class ViewMonatH : Fragment() {
                 for(i in 0..2) {
 
                     if(myList.containsKey(day)) {
-                        value += myList.getValue(day)[2]
+                        value += myList.getValue(day)[1]
                     }
 
                     else {

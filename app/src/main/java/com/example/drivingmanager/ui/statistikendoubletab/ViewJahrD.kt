@@ -16,11 +16,10 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import java.time.LocalDate
-import java.util.ArrayList
 import java.math.RoundingMode
 import java.text.DecimalFormat
-import kotlin.random.Random
+import java.time.LocalDate
+import java.util.*
 
 class ViewJahrD : Fragment() {
 
@@ -171,7 +170,7 @@ class ViewJahrD : Fragment() {
         for (i in 0..255) {
 
             if (myList.containsKey(date)) {
-                co2 += myList.getValue(date)[3]
+                co2 += myList.getValue(date)[2]
             } else {
 
             }
@@ -312,7 +311,7 @@ class ViewJahrD : Fragment() {
                 var date = LocalDate.of(year, month, i)
 
                 if (myList.containsKey(date)) {
-                    value += myList.getValue(date)[2]
+                    value += myList.getValue(date)[1]
                 } else {
                     value += 0f
                 }
