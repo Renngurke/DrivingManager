@@ -79,6 +79,14 @@ class AddTankrechnung : AppCompatActivity() {
         toolbar.setNavigationOnClickListener { v: View? -> onBackPressed() }
         setSupportActionBar(toolbar)
 
+        this.setTitle(
+            String.format(
+                "%s %s",
+                MainActivity.cl.cars[MainActivity.cl.index].marke,
+                MainActivity.cl.cars[MainActivity.cl.index].modell
+            )
+        )
+
         buttonFoto.setOnClickListener {
             dispatchTakePictureIntent()
         }

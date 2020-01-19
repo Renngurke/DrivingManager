@@ -16,6 +16,8 @@ class AddCarActivity : AppCompatActivity() {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
         toolbar.setNavigationOnClickListener { v: View? -> onBackPressed() }
         setSupportActionBar(toolbar)
+
+        this.setTitle("Driving Manager")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

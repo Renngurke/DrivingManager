@@ -19,6 +19,14 @@ class ShowPhoto : AppCompatActivity() {
         toolbar.setNavigationOnClickListener { v: View? -> onBackPressed() }
         setSupportActionBar(toolbar)
 
+        this.setTitle(
+            String.format(
+                "%s %s",
+                MainActivity.cl.cars[MainActivity.cl.index].marke,
+                MainActivity.cl.cars[MainActivity.cl.index].modell
+            )
+        )
+
         val foo: String = intent.getStringExtra("filename")
         //val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         //val datei = File(storageDir, foo)

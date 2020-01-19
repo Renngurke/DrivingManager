@@ -42,6 +42,14 @@ class CarActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navController,drawerLayout)
         navView.setupWithNavController(navController)
 
+        this.setTitle(
+            String.format(
+                "%s %s",
+                MainActivity.cl.cars[index].marke,
+                MainActivity.cl.cars[index].modell
+            )
+        )
+
 
         val header: View = navView.getHeaderView(0)
 
@@ -50,6 +58,15 @@ class CarActivity : AppCompatActivity() {
 
         model.text = MainActivity.cl.cars[index].modell
         marke.text = MainActivity.cl.cars[index].marke
+
+        // setting title according to fragment
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            toolbar.title = (String.format(
+                "%s %s",
+                MainActivity.cl.cars[index].marke,
+                MainActivity.cl.cars[index].modell
+            ))
+        }
 
 
         nav_back.setOnClickListener(View.OnClickListener { v: View? ->
