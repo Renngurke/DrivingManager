@@ -28,20 +28,64 @@ class AddCarActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         if(item.itemId == R.id.save){
-            var c: Car = Car(
-                add_brand.text.toString(),
-                add_mod.text.toString(),
-                add_kmCounter.text.toString().toInt(),
-                add_volume.text.toString().toInt(),
-                add_city.text.toString().toDouble(),
-                add_autobahn.text.toString().toDouble(),
-                add_hybrid.text.toString().toDouble(),
-                add_co2.text.toString().toInt(),
-                false
-            )
-            MainActivity.cl.cars.add(c)
-            MainActivity.cl.save(this)
-            onBackPressed()
+            var error = false
+
+            if (add_brand.text.isNullOrEmpty()) {
+                add_brand.setError("Geben Sie die Automarke an")
+                error = true
+            }
+
+            if (add_mod.text.isNullOrEmpty()) {
+                add_mod.setError("Geben Sie das Modell an")
+                error = true
+            }
+
+            if (add_kmCounter.text.isNullOrEmpty()) {
+                add_kmCounter.setError("Geben Sie den Kilometerstand an")
+                error = true
+            }
+
+            if (add_volume.text.isNullOrEmpty()) {
+                add_volume.setError("Geben Sie das Tankvolumen an")
+                error = true
+            }
+
+            if (add_city.text.isNullOrEmpty()) {
+                add_city.setError("Geben Sie den Stadtverbrauch an")
+                error = true
+            }
+
+            if (add_autobahn.text.isNullOrEmpty()) {
+                add_autobahn.setError("Geben Sie den Autobahnverbrauch an")
+                error = true
+            }
+
+            if (add_hybrid.text.isNullOrEmpty()) {
+                add_hybrid.setError("Geben Sie den Hybridverbrauch an")
+                error = true
+            }
+
+            if (add_co2.text.isNullOrEmpty()) {
+                add_co2.setError("Geben Sie den Co2 Ausstoss an")
+                error = true
+            }
+
+            if (!error) {
+                var c: Car = Car(
+                    add_brand.text.toString(),
+                    add_mod.text.toString(),
+                    add_kmCounter.text.toString().toInt(),
+                    add_volume.text.toString().toInt(),
+                    add_city.text.toString().toDouble(),
+                    add_autobahn.text.toString().toDouble(),
+                    add_hybrid.text.toString().toDouble(),
+                    add_co2.text.toString().toInt(),
+                    false
+                )
+                MainActivity.cl.cars.add(c)
+                MainActivity.cl.save(this)
+                onBackPressed()
+            }
         }
         return super.onOptionsItemSelected(item)
     }
