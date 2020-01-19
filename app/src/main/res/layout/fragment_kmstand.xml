@@ -22,6 +22,14 @@
                 android:text="@string/title_km_angeben"
                 android:textSize="28sp" />
 
+            <TextView
+                android:id="@+id/kmstand_vorher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
