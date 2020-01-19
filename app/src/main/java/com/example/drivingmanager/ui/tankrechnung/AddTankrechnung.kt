@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.example.drivingmanager.MainActivity
 import com.example.drivingmanager.R
-import com.example.drivingmanager.Tankrechnung
 import kotlinx.android.synthetic.main.activity_add_car.*
 import kotlinx.android.synthetic.main.content_add_tankrechnung.*
 import java.io.File
@@ -94,21 +93,39 @@ class AddTankrechnung : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        onBackPressed()
 
         if (item.itemId == R.id.save) {
 
-            MainActivity.cl.cars[MainActivity.cl.index].tankrechnungen.add(
-                Tankrechnung(
-                    add_tank_l.text.toString().toDouble(),
-                    add_tank_eu.text.toString().toDouble(),
+            if (add_tank_eu.text.isNullOrEmpty()) {
+                add_tank_eu.setError("foo")
+            }
+
+            if (add_tank_l.text.isNullOrEmpty()) {
+                add_tank_l.setError("foo")
+            }
+
+            if (add_tank_km.text.isNullOrEmpty()) {
+                add_tank_km.setError("foo")
+            }
+
+            if (!(add_tank_eu.text.isNullOrEmpty() || add_tank_l.text.isNullOrEmpty() || add_tank_km.text.isNullOrEmpty())) {
+
+                val liter = add_tank_l.text.toString().toDouble()
+                val preis = add_tank_eu.text.toString().toDouble()
+                val km = add_tank_km.text.toString().toInt()
+
+                MainActivity.cl.cars[MainActivity.cl.index].tr_eingabe(
+                    liter,
+                    preis,
+                    km,
                     currentPhotoPath
                 )
-            )
 
-            MainActivity.cl.cars[MainActivity.cl.index].gesKM =
-                add_tank_km.text.toString().toInt() //ersetzen oder hinzufuegen????
-            MainActivity.cl.save(this)
+                MainActivity.cl.save(this)
+
+                onBackPressed()
+            }
+        } else {
             onBackPressed()
         }
 

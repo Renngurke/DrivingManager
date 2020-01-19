@@ -90,7 +90,7 @@ class Car(
         dg_autobahn_add(km/3, liter/3)
         dg_hybrid_add(km/3, liter/3)
         dg_durch_update()
-        //tr_add(preis, liter, bild)
+        tr_add(preis, liter, bild)
     }
 
     fun dg_stadt_add(km: Int, liter: Double) {
