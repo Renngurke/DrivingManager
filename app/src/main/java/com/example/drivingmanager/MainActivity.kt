@@ -84,6 +84,10 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Die Autos wurden erfolgreich gelöscht", Toast.LENGTH_LONG)
                     .show()
             }
+            if (cl.cars.size < 1) {
+                startText.visibility = View.VISIBLE
+                list.visibility = View.GONE
+            }
         }
         return when (item.itemId) {
             else -> super.onOptionsItemSelected(item)
