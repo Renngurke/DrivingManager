@@ -229,7 +229,7 @@
                         android:id="@+id/textEinheit3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="liter/km" />
+                        android:text="liter/100 km" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -277,7 +277,7 @@
                         android:id="@+id/textEinheit4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="liter/km" />
+                        android:text="liter/100 km" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -325,7 +325,7 @@
                         android:id="@+id/textEinheit5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="liter/km" />
+                        android:text="liter/100 km" />
                 </LinearLayout>
 
             </LinearLayout>
