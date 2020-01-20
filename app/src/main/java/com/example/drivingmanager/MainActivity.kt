@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.car_added, Toast.LENGTH_LONG).show()
         }
         list.adapter?.notifyDataSetChanged()
+        size = cl.cars.size
         if(cl.cars.isEmpty()){
             list.visibility = View.GONE
             startText.visibility = View.VISIBLE
@@ -79,6 +80,10 @@ class MainActivity : AppCompatActivity() {
             var adapter: CarListAdapter = list.adapter as CarListAdapter
             adapter.selectionMode = !adapter.selectionMode;
             cl.save(this)
+            if (cl.cars.size < size) {
+                Toast.makeText(this, "Die Autos wurden erfolgreich gelöscht", Toast.LENGTH_LONG)
+                    .show()
+            }
         }
         return when (item.itemId) {
             else -> super.onOptionsItemSelected(item)

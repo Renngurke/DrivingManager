@@ -57,8 +57,9 @@
                         android:layout_height="35dp"
                         android:background="@color/colorPrimary"
                         android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
+                        android:inputType="number|numberDecimal"
+                        android:paddingEnd="50dp"
+                        android:textColor="@android:color/white" />
 
                     <TextView
                         android:layout_width="232dp"
@@ -104,8 +105,9 @@
                         android:layout_height="35dp"
                         android:background="@color/colorPrimary"
                         android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number|numberDecimal"
-                        android:paddingEnd="50dp" />
+                        android:inputType="number|numberDecimal"
+                        android:paddingEnd="50dp"
+                        android:textColor="@android:color/white" />
 
                     <TextView
                         android:layout_width="232dp"
@@ -151,8 +153,9 @@
                         android:layout_height="35dp"
                         android:background="@color/colorPrimary"
                         android:backgroundTint="@color/colorPrimary"
-                        android:inputType="numberSigned|number"
-                        android:paddingEnd="50dp" />
+                        android:inputType="number"
+                        android:paddingEnd="50dp"
+                        android:textColor="@android:color/white" />
 
                     <TextView
                         android:layout_width="232dp"
