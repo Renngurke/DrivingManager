@@ -71,7 +71,7 @@
         android:text="Kraftstoffverbrauch:" />
 
     <TextView
-        android:id="@+id/text_co2_ausstoss"
+        android:id="@+id/text_co2_ausstoß"
         android:translationY="55dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,6 +79,6 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="textStart"
         android:textSize="20sp"
-        android:text="CO2-Ausstoss:" />
+        android:text="CO2-Ausstoß:" />
 
 </LinearLayout>

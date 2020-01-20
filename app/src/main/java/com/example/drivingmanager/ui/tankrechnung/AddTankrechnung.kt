@@ -118,7 +118,7 @@ class AddTankrechnung : AppCompatActivity() {
             if (add_tank_km.text.isNullOrEmpty()) {
                 add_tank_km.setError("Geben Sie den Kilometerstand an")
                 error = true
-            } else if (add_tank_km.text.toString().toInt() <= MainActivity.cl.cars[MainActivity.cl.index].gesKM) {
+            } else if (add_tank_km.text.toString().toInt() < MainActivity.cl.cars[MainActivity.cl.index].gesKM) {
                 add_tank_km.setError("Eingegebener Kilometerstand niedriger als momentaner Kilomestand")
                 error = true
             }

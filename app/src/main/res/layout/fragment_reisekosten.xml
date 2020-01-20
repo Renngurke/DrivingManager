@@ -147,7 +147,7 @@
                     android:gravity="left"
                     android:paddingVertical="8dp"
                     android:paddingStart="24dp"
-                    android:text="Voraussichtlicher CO2 Ausstoss"
+                    android:text="Voraussichtlicher CO2 Ausstoß"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 

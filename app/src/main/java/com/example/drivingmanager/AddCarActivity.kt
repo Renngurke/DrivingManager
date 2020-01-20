@@ -68,7 +68,7 @@ class AddCarActivity : AppCompatActivity() {
             }
 
             if (add_co2.text.isNullOrEmpty()) {
-                add_co2.setError("Geben Sie den Co2 Ausstoss an")
+                add_co2.setError("Geben Sie den Co2 Ausstoß an")
                 error = true
             }
 

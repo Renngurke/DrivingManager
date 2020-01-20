@@ -48,8 +48,8 @@ class Car(
     fun kmStand_angeben(kmStadt: Int, kmAutobahn: Int, kmHybrid: Int) {
         tankstand -= (verbStadt * (kmStadt.toDouble() / 100.toDouble()) + verbAutobahn * (kmAutobahn.toDouble() / 100.toDouble()) + verbHybrid * (kmHybrid.toDouble() / 100.toDouble())) / tankVol.toDouble()
         dg_stadt_add(kmStadt, (kmStadt.toDouble()/100.toDouble())*verbStadt)
-        dg_autobahn_add(kmAutobahn, (kmStadt.toDouble()/100.toDouble())*verbAutobahn)
-        dg_hybrid_add(kmStadt, (kmStadt.toDouble()/100.toDouble())*verbHybrid)
+        dg_autobahn_add(kmAutobahn, (kmAutobahn.toDouble() / 100.toDouble()) * verbAutobahn)
+        dg_hybrid_add(kmHybrid, (kmHybrid.toDouble() / 100.toDouble()) * verbHybrid)
         dg_durch_update()
     }
 
