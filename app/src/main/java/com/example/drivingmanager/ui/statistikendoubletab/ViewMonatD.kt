@@ -72,7 +72,7 @@ class ViewMonatD : Fragment() {
         var streckeCo2 = Co2Strecke()
         var streckeC: TextView
         streckeC = viewA.findViewById(R.id.text_co2_ausstoß)
-        streckeC.setText("CO2-Ausstoß: \t \t \t \t \t \t " + streckeCo2 + " g/km")
+        streckeC.setText("CO2-Ausstoß: \t \t \t \t \t \t             " + streckeCo2 + " kg")
 
         mpLineChart = viewA.findViewById(R.id.line_chartd) as LineChart
 
@@ -104,9 +104,15 @@ class ViewMonatD : Fragment() {
         mpLineChart.getDescription().setPosition(950f,900f)
         //mpLineChart.getXAxis().setValueFormatter(IndexAxisValueFormatter(XMonate()))
         //mpLineChart.getXAxis().setValueFormatter(IndexAxisValueFormatter(XTage()))
-        mpLineChart.getXAxis().setValueFormatter(IndexAxisValueFormatter(XWoche()))
         mpLineChart.axisLeft.axisMinimum = 0f
         mpLineChart.axisRight.axisMinimum = 0f
+        mpLineChart.getXAxis().setLabelCount(0, true)
+        mpLineChart.getXAxis().setLabelCount(1, true)
+        mpLineChart.getXAxis().setLabelCount(2, true)
+        mpLineChart.getXAxis().setLabelCount(3, true)
+        mpLineChart.getXAxis().setLabelCount(4, true)
+        mpLineChart.getXAxis().setLabelCount(5, true)
+        mpLineChart.getXAxis().setValueFormatter(IndexAxisValueFormatter(XWoche()))
 
         mpLineChart.invalidate()
         return viewA
@@ -175,7 +181,7 @@ class ViewMonatD : Fragment() {
         for (i in 0..30) {
 
             if (myList.containsKey(date)) {
-                co2 += myList.getValue(date)[2]
+                co2 += myList.getValue(date)[2] / 1000
             } else {
 
             }
@@ -198,7 +204,7 @@ class ViewMonatD : Fragment() {
         var counter = 1
         for(i in 0..4) {
 
-            xAxisLabel.add("")
+            xAxisLabel.add(counter.toString())
             counter++
         }
 
