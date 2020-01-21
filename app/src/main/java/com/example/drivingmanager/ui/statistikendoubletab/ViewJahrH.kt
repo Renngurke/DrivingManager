@@ -71,7 +71,7 @@ class ViewJahrH : Fragment() {
         var streckeCo2 = Co2Strecke()
         var streckeC: TextView
         streckeC = viewA.findViewById(R.id.text_co2_ausstoß)
-        streckeC.setText("CO2-Ausstoß: \t \t \t \t \t \t " + streckeCo2 + " g/km")
+        streckeC.setText("CO2-Ausstoß: \t \t \t \t \t \t             " + streckeCo2 + " kg")
 
         mpLineChart = viewA.findViewById(R.id.line_chartd) as LineChart
 
@@ -173,7 +173,7 @@ class ViewJahrH : Fragment() {
         for (i in 0..255) {
 
             if (myList.containsKey(date)) {
-                co2 += myList.getValue(date)[2]
+                co2 += myList.getValue(date)[2] / 1000
             } else {
 
             }

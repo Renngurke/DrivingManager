@@ -31,6 +31,11 @@ class Car(
     var literkosten: Double = 1.369
     val tankrechnungen: MutableList<Tankrechnung> = ArrayList()
     var selected: Boolean = selected
+    var my_getankt = true
+    var my_getanktTankstand = tankstand
+    var my_getanktKMStadt = 0
+    var my_getankKMAutobahn = 0
+    var my_getanktKMHybrid = 0
 
     var dg_stadt_km_l_g: HashMap<LocalDate, FloatArray> = HashMap()
     var dg_autobahn_km_l_g: HashMap<LocalDate, FloatArray> = HashMap()
@@ -46,10 +51,18 @@ class Car(
     }
 
     fun kmStand_angeben(kmStadt: Int, kmAutobahn: Int, kmHybrid: Int) {
+        my_getankt = false
+        my_getanktKMStadt += kmStadt
+        my_getankKMAutobahn += kmAutobahn
+        my_getanktKMHybrid += kmHybrid
+
         tankstand -= (verbStadt * (kmStadt.toDouble() / 100.toDouble()) + verbAutobahn * (kmAutobahn.toDouble() / 100.toDouble()) + verbHybrid * (kmHybrid.toDouble() / 100.toDouble())) / tankVol.toDouble()
-        dg_stadt_add(kmStadt, (kmStadt.toDouble()/100.toDouble())*verbStadt)
-        dg_autobahn_add(kmAutobahn, (kmAutobahn.toDouble() / 100.toDouble()) * verbAutobahn)
-        dg_hybrid_add(kmHybrid, (kmHybrid.toDouble() / 100.toDouble()) * verbHybrid)
+        dg_stadt_add(kmStadt.toFloat(), (kmStadt.toDouble() / 100.toDouble()) * verbStadt)
+        dg_autobahn_add(
+            kmAutobahn.toFloat(),
+            (kmAutobahn.toDouble() / 100.toDouble()) * verbAutobahn
+        )
+        dg_hybrid_add(kmHybrid.toFloat(), (kmHybrid.toDouble() / 100.toDouble()) * verbHybrid)
         dg_durch_update()
     }
 
@@ -77,27 +90,66 @@ class Car(
     }
 
     fun tr_eingabe(liter: Double, preis: Double, km: Int, bild: String) {
+        var strecke = km - gesKM
         gesKM = km
         gesCo2Aus = km * co2Aus
+        // aktualisieren des Tankstands für die gefahrenen km
+        tankstand -= (verbStadt * (strecke.toDouble() / 3 / 100.toDouble()) + verbAutobahn * (strecke.toDouble() / 3 / 100.toDouble()) + verbHybrid * (strecke.toDouble() / 3 / 100.toDouble())) / tankVol.toDouble()
+
+        if (!my_getankt) {
+            var literStadt = (my_getanktKMStadt.toDouble() / 100) * verbStadt
+            var literAutobahn = (my_getankKMAutobahn.toDouble() / 100) * verbAutobahn
+            var literHybrid = (my_getanktKMHybrid.toDouble() / 100) * verbHybrid
+            var literGes = literAutobahn + literHybrid + literStadt
+            var literDiff = literGes - (my_getanktTankstand * tankVol - tankstand * tankVol)
+            var literDiffPerType = literDiff / 3
+            var verbrauchDiffStadt = literDiffPerType / (my_getanktKMStadt.toDouble() / 100)
+            var verbrauchDiffAutobahn = literDiffPerType / (my_getankKMAutobahn.toDouble() / 100)
+            var verbrauchDiffHybrid = literDiffPerType / (my_getanktKMHybrid.toDouble() / 100)
+            verbStadt += verbrauchDiffStadt
+            verbAutobahn += verbrauchDiffAutobahn
+            verbHybrid += verbrauchDiffHybrid
+
+            my_getankt = true
+            my_getanktTankstand = tankstand + liter / tankVol
+            my_getanktKMHybrid = 0
+            my_getankKMAutobahn = 0
+            my_getanktKMStadt = 0
+        } else {
+            var literGes =
+                (strecke.toDouble() / 3 * 100) * verbHybrid + (strecke.toDouble() / 3 * 100) * verbAutobahn + (strecke.toDouble() / 3 * 100) * verbStadt
+            var literDiff = literGes - (my_getanktTankstand * tankVol - tankstand * tankVol)
+            var literDiffPerType = literDiff / 3
+            var verbrauchDiffStadt = literDiffPerType / (my_getanktKMStadt.toDouble() / 100)
+            var verbrauchDiffAutobahn = literDiffPerType / (my_getankKMAutobahn.toDouble() / 100)
+            var verbrauchDiffHybrid = literDiffPerType / (my_getanktKMHybrid.toDouble() / 100)
+            verbStadt += verbrauchDiffStadt
+            verbAutobahn += verbrauchDiffAutobahn
+            verbHybrid += verbrauchDiffHybrid
+
+            my_getankt = true
+            my_getanktTankstand = tankstand + liter / tankVol
+            my_getanktKMHybrid = 0
+            my_getankKMAutobahn = 0
+            my_getanktKMStadt = 0
+        }
+
         tankstand += liter / tankVol
         if (tankstand > 1.00) tankstand = 1.00
         literkosten = ((preis / liter) + literkosten) / 2.0
-        var verbDif = verbDurchschnitt() - (liter / (km.toDouble() / 100.toDouble()))
-        verbStadt += verbDif
-        verbAutobahn += verbDif
-        verbHybrid += verbDif
-        dg_stadt_add(km/3, liter/3)
-        dg_autobahn_add(km/3, liter/3)
-        dg_hybrid_add(km/3, liter/3)
+        dg_stadt_add((strecke.toFloat() / 3), (strecke * verbStadt / 100) / 3)
+        dg_autobahn_add((strecke.toFloat() / 3), (strecke * verbAutobahn / 100) / 3)
+        dg_hybrid_add((strecke.toFloat() / 3), (strecke * verbHybrid / 100) / 3)
         dg_durch_update()
         tr_add(preis, liter, bild)
     }
 
-    fun dg_stadt_add(km: Int, liter: Double) {
+    fun dg_stadt_add(km: Float, liter: Double) {
         if(dg_stadt_km_l_g.containsKey(LocalDate.now())) {
             var km_neu = dg_stadt_km_l_g.getValue(LocalDate.now()).elementAt(0)+km.toFloat()
             var l_neu = dg_stadt_km_l_g.getValue(LocalDate.now()).elementAt(1)+liter.toFloat()
-            var g_neu = dg_stadt_km_l_g.getValue(LocalDate.now()).elementAt(2)+(km*co2Aus).toFloat()
+            var g_neu =
+                dg_stadt_km_l_g.getValue(LocalDate.now()).elementAt(2) + (km * co2Aus.toFloat()).toFloat()
             var updated_values = FloatArray(3)
             updated_values[0]=km_neu
             updated_values[1]=l_neu
@@ -108,15 +160,17 @@ class Car(
             var new_values = FloatArray(3)
             new_values[0]=km.toFloat()
             new_values[1]=liter.toFloat()
-            new_values[2]=(km*co2Aus).toFloat()
+            new_values[2] = (km * co2Aus.toFloat()).toFloat()
             dg_stadt_km_l_g.set(LocalDate.now(), new_values)
         }
     }
-    fun dg_autobahn_add(km: Int, liter: Double) {
+
+    fun dg_autobahn_add(km: Float, liter: Double) {
         if(dg_autobahn_km_l_g.containsKey(LocalDate.now())) {
             var km_neu = dg_autobahn_km_l_g.getValue(LocalDate.now()).elementAt(0)+km.toFloat()
             var l_neu = dg_autobahn_km_l_g.getValue(LocalDate.now()).elementAt(1)+liter.toFloat()
-            var g_neu = dg_autobahn_km_l_g.getValue(LocalDate.now()).elementAt(2)+(km*co2Aus).toFloat()
+            var g_neu =
+                dg_autobahn_km_l_g.getValue(LocalDate.now()).elementAt(2) + (km * co2Aus.toFloat()).toFloat()
             var updated_values = FloatArray(3)
             updated_values[0]=km_neu
             updated_values[1]=l_neu
@@ -127,15 +181,17 @@ class Car(
             var new_values = FloatArray(3)
             new_values[0]=km.toFloat()
             new_values[1]=liter.toFloat()
-            new_values[2]=(km*co2Aus).toFloat()
+            new_values[2] = (km * co2Aus.toFloat()).toFloat()
             dg_autobahn_km_l_g.set(LocalDate.now(), new_values)
         }
     }
-    fun dg_hybrid_add(km: Int, liter: Double) {
+
+    fun dg_hybrid_add(km: Float, liter: Double) {
         if(dg_hybrid_km_l_g.containsKey(LocalDate.now())) {
             var km_neu = dg_hybrid_km_l_g.getValue(LocalDate.now()).elementAt(0)+km.toFloat()
             var l_neu = dg_hybrid_km_l_g.getValue(LocalDate.now()).elementAt(1)+liter.toFloat()
-            var g_neu = dg_hybrid_km_l_g.getValue(LocalDate.now()).elementAt(2)+(km*co2Aus).toFloat()
+            var g_neu =
+                dg_hybrid_km_l_g.getValue(LocalDate.now()).elementAt(2) + (km * co2Aus.toFloat()).toFloat()
             var updated_values = FloatArray(3)
             updated_values[0]=km_neu
             updated_values[1]=l_neu
@@ -146,18 +202,24 @@ class Car(
             var new_values = FloatArray(3)
             new_values[0]=km.toFloat()
             new_values[1]=liter.toFloat()
-            new_values[2]=(km*co2Aus).toFloat()
+            new_values[2] = (km * co2Aus.toFloat()).toFloat()
             dg_hybrid_km_l_g.set(LocalDate.now(), new_values)
         }
     }
     fun dg_durch_update() {
-            var km_durch = (dg_stadt_km_l_g.getValue(LocalDate.now()).elementAt(0)+dg_autobahn_km_l_g.getValue(LocalDate.now()).elementAt(0)+dg_hybrid_km_l_g.getValue(LocalDate.now()).elementAt(0))/3.toFloat()
-            var l_durch = (dg_stadt_km_l_g.getValue(LocalDate.now()).elementAt(1)+dg_autobahn_km_l_g.getValue(LocalDate.now()).elementAt(1)+dg_hybrid_km_l_g.getValue(LocalDate.now()).elementAt(1))/3.toFloat()
-            var g_durch = km_durch*co2Aus.toFloat()
-            var durch_values = FloatArray(3)
-            durch_values[0]=km_durch
-            durch_values[1]=l_durch
-            durch_values[2]=g_durch
-            dg_durch_km_l_g.set(LocalDate.now(), durch_values)
+        var km_durch =
+            (dg_stadt_km_l_g.getValue(LocalDate.now()).elementAt(0) + dg_autobahn_km_l_g.getValue(
+                LocalDate.now()
+            ).elementAt(0) + dg_hybrid_km_l_g.getValue(LocalDate.now()).elementAt(0))
+        var l_durch =
+            (dg_stadt_km_l_g.getValue(LocalDate.now()).elementAt(1) + dg_autobahn_km_l_g.getValue(
+                LocalDate.now()
+            ).elementAt(1) + dg_hybrid_km_l_g.getValue(LocalDate.now()).elementAt(1))
+        var g_durch = km_durch * co2Aus.toFloat()
+        var durch_values = FloatArray(3)
+        durch_values[0] = km_durch
+        durch_values[1] = l_durch
+        durch_values[2] = g_durch
+        dg_durch_km_l_g.set(LocalDate.now(), durch_values)
     }
 }

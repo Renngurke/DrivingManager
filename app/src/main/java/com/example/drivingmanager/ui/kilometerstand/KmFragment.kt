@@ -86,6 +86,7 @@ class KmFragment : Fragment() {
                         "Der Kilometerstand wurde erfolgreich angegeben",
                         Toast.LENGTH_LONG
                     ).show()
+                    activity!!.supportFragmentManager.popBackStack()
                 }
             }
         }

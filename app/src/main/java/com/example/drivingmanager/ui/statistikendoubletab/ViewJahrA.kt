@@ -71,7 +71,7 @@ class ViewJahrA : Fragment() {
         var streckeCo2 = Co2Strecke()
         var streckeC: TextView
         streckeC = viewA.findViewById(R.id.text_co2_ausstoß)
-        streckeC.setText("CO2-Ausstoß: \t \t \t \t \t \t " + streckeCo2 + " g/km")
+        streckeC.setText("CO2-Ausstoß: \t \t \t \t \t \t             " + streckeCo2 + " kg")
 
         mpLineChart = viewA.findViewById(R.id.line_chartd) as LineChart
 
