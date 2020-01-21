@@ -57,6 +57,7 @@ class Car(
         my_getanktKMHybrid += kmHybrid
 
         tankstand -= (verbStadt * (kmStadt.toDouble() / 100.toDouble()) + verbAutobahn * (kmAutobahn.toDouble() / 100.toDouble()) + verbHybrid * (kmHybrid.toDouble() / 100.toDouble())) / tankVol.toDouble()
+
         dg_stadt_add(kmStadt.toFloat(), (kmStadt.toDouble() / 100.toDouble()) * verbStadt)
         dg_autobahn_add(
             kmAutobahn.toFloat(),
@@ -90,50 +91,11 @@ class Car(
     }
 
     fun tr_eingabe(liter: Double, preis: Double, km: Int, bild: String) {
-        var strecke = km - gesKM
+        var strecke = km - gesKM        // 40
         gesKM = km
         gesCo2Aus = km * co2Aus
         // aktualisieren des Tankstands für die gefahrenen km
         tankstand -= (verbStadt * (strecke.toDouble() / 3 / 100.toDouble()) + verbAutobahn * (strecke.toDouble() / 3 / 100.toDouble()) + verbHybrid * (strecke.toDouble() / 3 / 100.toDouble())) / tankVol.toDouble()
-
-        if (!my_getankt) {
-            var literStadt = (my_getanktKMStadt.toDouble() / 100) * verbStadt
-            var literAutobahn = (my_getankKMAutobahn.toDouble() / 100) * verbAutobahn
-            var literHybrid = (my_getanktKMHybrid.toDouble() / 100) * verbHybrid
-            var literGes = literAutobahn + literHybrid + literStadt
-            var literDiff = literGes - (my_getanktTankstand * tankVol - tankstand * tankVol)
-            var literDiffPerType = literDiff / 3
-            var verbrauchDiffStadt = literDiffPerType / (my_getanktKMStadt.toDouble() / 100)
-            var verbrauchDiffAutobahn = literDiffPerType / (my_getankKMAutobahn.toDouble() / 100)
-            var verbrauchDiffHybrid = literDiffPerType / (my_getanktKMHybrid.toDouble() / 100)
-            verbStadt += verbrauchDiffStadt
-            verbAutobahn += verbrauchDiffAutobahn
-            verbHybrid += verbrauchDiffHybrid
-
-            my_getankt = true
-            my_getanktTankstand = tankstand + liter / tankVol
-            my_getanktKMHybrid = 0
-            my_getankKMAutobahn = 0
-            my_getanktKMStadt = 0
-        } else {
-            var literGes =
-                (strecke.toDouble() / 3 * 100) * verbHybrid + (strecke.toDouble() / 3 * 100) * verbAutobahn + (strecke.toDouble() / 3 * 100) * verbStadt
-            var literDiff = literGes - (my_getanktTankstand * tankVol - tankstand * tankVol)
-            var literDiffPerType = literDiff / 3
-            var verbrauchDiffStadt = literDiffPerType / (my_getanktKMStadt.toDouble() / 100)
-            var verbrauchDiffAutobahn = literDiffPerType / (my_getankKMAutobahn.toDouble() / 100)
-            var verbrauchDiffHybrid = literDiffPerType / (my_getanktKMHybrid.toDouble() / 100)
-            verbStadt += verbrauchDiffStadt
-            verbAutobahn += verbrauchDiffAutobahn
-            verbHybrid += verbrauchDiffHybrid
-
-            my_getankt = true
-            my_getanktTankstand = tankstand + liter / tankVol
-            my_getanktKMHybrid = 0
-            my_getankKMAutobahn = 0
-            my_getanktKMStadt = 0
-        }
-
         tankstand += liter / tankVol
         if (tankstand > 1.00) tankstand = 1.00
         literkosten = ((preis / liter) + literkosten) / 2.0
